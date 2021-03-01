@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #guide{
+            margin: 30px;
+        }
+    </style>
+	<title>Crontab Schedule Maker</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="../Bank-Details-By-IFSC-code/style.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <!---Favicon Code-->
+	  <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
+	  <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
+	  <link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
+	  <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
+	  <link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon/apple-icon-114x114.png">
+	  <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/apple-icon-120x120.png">
+	  <link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon/apple-icon-144x144.png">
+	  <link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon/apple-icon-152x152.png">
+	  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-icon-180x180.png">
+	  <link rel="icon" type="image/png" sizes="192x192"  href="../assets/favicon/android-icon-192x192.png">
+	  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+	  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+	  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+	  <link rel="manifest" href="../assets/favicon/manifest.json">
+	  <meta name="msapplication-TileColor" content="#ffffff">
+	  <meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
+	  <meta name="theme-color" content="#ffffff">
+  
+	  <!---End Favicon Code-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141145183-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-141145183-6');
+</script>
+<script data-ad-client="ca-pub-7541510388779651" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>
+
+<body>
+
+
+	<!---NAVBAR-->
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="index.html">Crontab Schedule Maker</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+				</li>
+			
+
+			</ul>
+
+		</div>
+	</nav>
+
+	<!--NAVBAR-->
+
+
+
+	<!----Main Content-->
+
+	<section class="container-fluid bg py-3">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-8 col-md-7">
+
+				<div class="form-container py-4">
+
+					<div class="form-group">
+                        <h4>Enter Few Details </h4>
+                        <a href="#guide"  class="text-primary"> Read Guide to use</a><br><br>
+						<h6   >Minutes</h6>
+
+						<input type="text" class="form-control" id="minutes"  placeholder="e.g. 55" minlength="1"
+							maxlength="2" required>
+
+                                                 <h6>Hours</h6>
+						<input type="text" class="form-control" id="hours"  placeholder="e.g. 23" minlength="1"
+							maxlength="2" required>
+                            <h6>Day of Month</h6>
+						<input type="text" class="form-control" id="day"  placeholder="e.g. 31" minlength="1"
+							maxlength="2" required>
+                            <h6>Month</h6>
+						<input type="text" class="form-control" id="month"  placeholder="e.g. 12" minlength="1"
+							maxlength="2" required>
+                            <h6>Day Of week</h6>
+						<input type="text" class="form-control" id="wkday"  placeholder="e.g. 5" minlength="1"
+							maxlength="2" required>
+                            <h6>Username</h6>
+                            <input type="text" class="form-control" id="user"  placeholder="e.g. root , bash" minlength="2"
+                                maxlength="20" required><h6>Script Path</h6>
+                                <input type="text" class="form-control" id="path"  placeholder="e.g. ~/updateScript" minlength="2"
+                                     required>
+                            
+					</div>
+				
+
+					<button type="submit" href="#output" class="btn btn-success btn-block" onclick="generateFunction()">Generate </button><br>
+                    <h6>Your Output Code</h6>
+                    <input  onclick="copyFunction()" type="text" disabled class="form-control" id="output" >
+                    <small onclick="copyFunction()" class="form-text text-muted">Click to copy</small>
+
+                </div>
+			</section>
+
+            <br>
+            <div id="guide">
+	
+        
+       
+            
+                <h1 >Guide</h1><br>
+
+                <h5>Minutes</h5>
+              <p>  Minutes are the part of hour we want , value must be between 0-59, suppose you want  task to be execute on 12 th minute of hour then the value of minute should be 12, If you want to execute a task on each minute then value should be * . </p>
+                <h5>Hour</h5>
+                <p>   Value must be between 0-23, suppose you want  task to be execute on 12 th hour of day then the value of hour should be 12, If you want to execute a task on each hour then value should be * . </p>
+                <h5>Day of Month</h5>
+                <p>    Value must be between 1-31, suppose you want  task to be execute on 12 th day of month then the value of day should be 12, If you want to execute a task on each day then value should be * . While adding value we recommend adding value less than 29 because , it will execute in feb in value >28</p>
+
+                <h5> Month</h5>
+                <p>     Value must be between 1-12, suppose you want  task to be execute on 12 th month of year then the value of month should be 12, If you want to execute a task on each month then value should be * .</p>
+
+                <h5>Day of Week</h5>
+                <p>       Value must be between 0-6, suppose you want  task to be execute on 3 th day of week then the value of day should be 3, If you want to execute a task on each day then value should be * . [Note : Some systems supports 7 as sunday. Please check compatibility before using]</p>
+
+                <h5>Username</h5>
+                <p>       Value should be your Username or root or bash , depends on your config.</p>
+                <h5>Path</h5>
+                <p>    Enter path of script, or read guide below</p>
+
+
+                <h5>How it works?</h5>
+                <pre>
+                    # ┌───────────── minute (0 - 59)
+                    # │ ┌───────────── hour (0 - 23)
+                    # │ │ ┌───────────── day of the month (1 - 31)
+                    # │ │ │ ┌───────────── month (1 - 12)
+                    # │ │ │ │ ┌───────────── day of the week (0 - 6) (Sunday to Saturday;
+                    # │ │ │ │ │                                   7 is also Sunday on some systems)
+                    # │ │ │ │ │
+                    # │ │ │ │ │
+                    # * * * * * <command to execute></pre>
+
+
+                        <br>
+                        <h5 id="next">Next Steps</h5>
+
+                        Now Login to your terminal, Now
+                        use commands below
+                        <pre> 
+                            
+                            $  sudo touch ~/filenamehere
+
+                        </pre>
+                        Making changes here
+                        <pre> 
+
+                            $  nano ~/filenamehere
+
+                        </pre>
+                        enter all the commands here which you want to execute. for example
+                        <pre> 
+
+                            #!/bin/bash
+                            sudo service apache2 restart
+                            sudo apt update
+                            sudo apt upgrade -y
+                            sudo apt autoremove -y
+                            sudo reboot
+
+                        </pre>
+                        Now press Ctrl + X and then press y & click enter. This will save your file.<br>
+                        Now time to make sure your script is executable
+                        <pre>
+
+                            sudo chmod +x ~/filenamehere
+
+                        </pre>
+                        Now the last bit, add it to your crontab. To do that, type in
+                        <pre>
+
+                            crontab -e
+
+                        </pre>
+
+                        When the file opens at the bottom of it, Copy output from above and paste on bottom line then
+                        Save the file and exit from it. To make sure you’ve added the cron, type in
+
+                        <pre>
+
+                            crontab -l
+
+                        </pre>
+                        You should see the command you added at the bottom.
+
+
+
+                        Some of above content is copied  from <a target="_blank" class="text-primary" href="https://www.swayalgo.com/setup-crontab-jobs-for-daily-automatic-updates/">this post</a> of  <a target="_blank" class="text-primary" href="https://www.swayalgo.com/">SwayAlgo Blogs</a> . Please visit link to get more details.
+
+
+
+                        
+          
+    </div>
+
+<br>
+
+
+
+
+
+	<!----Main Content-->
+
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+<script src="script.js" type="text/javascript"></script>
+
+	<footer class="footer bg-dark">
+		<div class="container">
+			<span style="color: white !important;" class="text-muted">Copyright &copy; 2021 |</span>
+			<a class="text-white" href="https://www.swayalgo.com">  A Tool by SwayAlgo.com</a>
+		</div>
+	</footer>
+
+</body>
+
+</html>
