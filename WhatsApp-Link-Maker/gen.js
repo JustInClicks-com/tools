@@ -9,7 +9,7 @@ function generateFunction()
     wpLink  =wpLink+inputMobile.value+"/?text="+finalMsg;
     document.getElementById("wp-link").value=wpLink;
 
-var WPscript="<script type=\"text/javascript\"> \n var wpURL=\""+wpLink+";\"\n</script>\n<div id=\"whatsapp-btn\"></div>\n <script type=\"text/javascript\" src=\"https://static-cdn.swayalgo.com/Public CDN/whatsapp-widget.js\"></script>"
+var WPscript="<script type=\"text/javascript\"> \n var wpURL=\""+wpLink+"\";\n</script>\n<div id=\"whatsapp-btn\"></div>\n <script type=\"text/javascript\" src=\"https://static-cdn.swayalgo.com/Public CDN/whatsapp-widget.js\"></script>"
 
 document.getElementById("wp-widget").value=WPscript;
 }
