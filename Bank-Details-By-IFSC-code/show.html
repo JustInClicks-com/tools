@@ -108,88 +108,9 @@
         crossorigin="anonymous"></script>
 
 
-    <script>
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
-        var ifsc = urlParams.get('ifsc');
-      
-			//window.alert(ifsc);
-			if (ifsc.length == 11) {
-               
-				const Http = new XMLHttpRequest();
-				const url = 'https://ifsc.razorpay.com/' + ifsc;
-				var request = new XMLHttpRequest();
-               
-				request.onreadystatechange = function () {
-					if (this.readyState == 4 && this.status == 200) {
-                        //window.alert(ifsc);
-						//window.alert(this.responseText);
-						var myArr = JSON.parse(this.responseText);
-					
-
-						//document.getElementById("invalid").style.display = "none";
-
-
-
-						//var ifsc to be use
-						var bankName = myArr.BANK;
-						var branch = myArr.BRANCH;
-						var address = myArr.ADDRESS;
-						var center = myArr.CENTRE;
-						var district = myArr.DISTRICT;
-						var state = myArr.STATE;
-						var contact = myArr.CONTACT;
-						var upi = myArr.UPI;
-						var rtgs = myArr.RTGS;
-						var city = myArr.CITY;
-						var neft = myArr.NEFT;
-						var imps = myArr.IMPS;
-						var micr = myArr.MICR;
-						var bankcode = myArr.BANKCODE;
-
-
-						if (micr == "") {
-							micr = "Not found";
-						}
-
-						upi = (upi == true) ? "Yes" : "No";
-						rtgs = (rtgs == true) ? "Yes" : "No";
-						neft = (neft == true) ? "Yes" : "No";
-						imps = (imps == true) ? "Yes" : "No";
-						micr = (imps == "") ? "Not Found" : micr;
-						bankcode = (bankcode == "") ? "Not Found" : bankcode;
-						bankName = (bankName == "") ? "Not Found" : bankName;
-						branch = (branch == "") ? "Not Found" : branch;
-						address = (address == "") ? "Not Found" : address;
-						center = (center == "") ? "Not Found" : center;
-						district = (district == "") ? "Not Found" : district;
-						state = (state == "") ? "Not Found" : state;
-						contact = (contact == "") ? "Not Found" : contact;
-						var generated = '<table class=table table-striped> <br> <h5>Basic Details</h5> <thead> <tr> <th scope=col>Point </th> <th scope=col>Details</th> </tr> </thead> <tbody> <tr> <th scope=row>IFSC</th> <td>' + ifsc + '</td> </tr> <tr> <th scope=row>Bank Name</th> <td>' + bankName + '</td> </tr> <tr> <th scope=row>Bank Code</th> <td>' + bankcode + '</td> </tr> <tr> <th scope=row>Branch</th> <td>' + branch + '</td> </tr> <tr> <th scope=row>Center</th> <td>' + center + '</td> </tr> <tr> <th scope=row>City</th> <td>' + city + '</td> </tr> <tr> <th scope=row>Address</th> <td>' + address + '</td> </tr> <tr> <th scope=row>District</th> <td>' + district + '</td> </tr> <tr> <th scope=row>State </th> <td>' + state + '</td> </tr> <tr> <th scope=row>Contact No</th> <td>' + contact + '</td> </tr> <tr> <th scope=row>MICR</th> <td>' + micr + '</td> </tr> <br> <tr> <th scope=row>UPI</th> <td>' + upi + '</td> </tr> <tr> <th scope=row>RTGS</th> <td>' + rtgs + '</td> </tr> <tr> <th scope=row>NEFT</th> <td>' + neft + '</td> </tr> <tr> <th scope=row>IMPS</th> <td>' + imps + '</td> </tr> </tbody> </table><br> ';
-						document.getElementById('response').innerHTML = generated;
-						document.getElementById('response').style.display = "block";
-
-					}
-					else {
-
-					
-						
-
-					}
-				};
-
-				request.open('GET', url);
-				request.send();
-
-			}
-			else {
-				document.getElementById('response').style.display = "none";
-
-			}
-
-
-
-    </script>
+   <script type="text/javascript">
+var _0xd3c5=['display','43988umxNnB','507rcopUw','GET','Not\x20found','MICR','parse','open','1wwZIoW','getElementById','</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>City</th>\x20<td>','none','</td>\x20</tr>\x20</tbody>\x20</table><br>\x20','ADDRESS','BRANCH','responseText','response','188124kHrNyU','readyState','</td>\x20</tr>\x20<br>\x20<tr>\x20<th\x20scope=row>UPI</th>\x20<td>','style','262TLiCKO','</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>District</th>\x20<td>','</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>NEFT</th>\x20<td>','Yes','</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>Bank\x20Code</th>\x20<td>','BANK','RTGS','<table\x20class=table\x20table-striped>\x20<br>\x20<h5>Basic\x20Details</h5>\x20<thead>\x20<tr>\x20<th\x20scope=col>Point\x20</th>\x20<th\x20scope=col>Details</th>\x20</tr>\x20</thead>\x20<tbody>\x20<tr>\x20<th\x20scope=row>IFSC</th>\x20<td>','186200GNvUYB','UPI','CONTACT','block','STATE','</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>IMPS</th>\x20<td>','198107dNmWFs','</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>Branch</th>\x20<td>','IMPS','https://ifsc.razorpay.com/','status','196007lzHRKn','location','1502OQLNOH','</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>Bank\x20Name</th>\x20<td>','search','DISTRICT','ifsc','</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>Address</th>\x20<td>','CITY','Not\x20Found','innerHTML','</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>Contact\x20No</th>\x20<td>','</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>RTGS</th>\x20<td>'];var _0x1511=function(_0x577ec4,_0xc81eb7){_0x577ec4=_0x577ec4-0x1a5;var _0xd3c590=_0xd3c5[_0x577ec4];return _0xd3c590;};var _0x3ecf50=_0x1511;(function(_0x29f3f8,_0x48973f){var _0x1feeb0=_0x1511;while(!![]){try{var _0x1073a2=-parseInt(_0x1feeb0(0x1a8))+-parseInt(_0x1feeb0(0x1c4))+parseInt(_0x1feeb0(0x1d6))+parseInt(_0x1feeb0(0x1a6))+-parseInt(_0x1feeb0(0x1b4))*parseInt(_0x1feeb0(0x1bb))+parseInt(_0x1feeb0(0x1d0))+-parseInt(_0x1feeb0(0x1c8))*parseInt(_0x1feeb0(0x1b5));if(_0x1073a2===_0x48973f)break;else _0x29f3f8['push'](_0x29f3f8['shift']());}catch(_0x56eb35){_0x29f3f8['push'](_0x29f3f8['shift']());}}}(_0xd3c5,0x3436a));const queryString=window[_0x3ecf50(0x1a7)][_0x3ecf50(0x1aa)],urlParams=new URLSearchParams(queryString);var ifsc=urlParams['get'](_0x3ecf50(0x1ac));if(ifsc['length']==0xb){const Http=new XMLHttpRequest(),url=_0x3ecf50(0x1d9)+ifsc;var request=new XMLHttpRequest();request['onreadystatechange']=function(){var _0x2e507e=_0x3ecf50;if(this[_0x2e507e(0x1c5)]==0x4&&this[_0x2e507e(0x1a5)]==0xc8){var _0x59136a=JSON[_0x2e507e(0x1b9)](this[_0x2e507e(0x1c2)]),_0x48ccc4=_0x59136a[_0x2e507e(0x1cd)],_0x5e0157=_0x59136a[_0x2e507e(0x1c1)],_0x1a987e=_0x59136a[_0x2e507e(0x1c0)],_0x4f6ebc=_0x59136a['CENTRE'],_0x380959=_0x59136a[_0x2e507e(0x1ab)],_0x773759=_0x59136a[_0x2e507e(0x1d4)],_0x53cee9=_0x59136a[_0x2e507e(0x1d2)],_0x266782=_0x59136a[_0x2e507e(0x1d1)],_0x43900e=_0x59136a[_0x2e507e(0x1ce)],_0x907847=_0x59136a[_0x2e507e(0x1ae)],_0x1aac4d=_0x59136a['NEFT'],_0x5eea60=_0x59136a[_0x2e507e(0x1d8)],_0x128c45=_0x59136a[_0x2e507e(0x1b8)],_0x56b849=_0x59136a['BANKCODE'];_0x128c45==''&&(_0x128c45=_0x2e507e(0x1b7));_0x266782=_0x266782==!![]?_0x2e507e(0x1cb):'No',_0x43900e=_0x43900e==!![]?_0x2e507e(0x1cb):'No',_0x1aac4d=_0x1aac4d==!![]?'Yes':'No',_0x5eea60=_0x5eea60==!![]?'Yes':'No',_0x128c45=_0x5eea60==''?_0x2e507e(0x1af):_0x128c45,_0x56b849=_0x56b849==''?_0x2e507e(0x1af):_0x56b849,_0x48ccc4=_0x48ccc4==''?'Not\x20Found':_0x48ccc4,_0x5e0157=_0x5e0157==''?_0x2e507e(0x1af):_0x5e0157,_0x1a987e=_0x1a987e==''?_0x2e507e(0x1af):_0x1a987e,_0x4f6ebc=_0x4f6ebc==''?_0x2e507e(0x1af):_0x4f6ebc,_0x380959=_0x380959==''?_0x2e507e(0x1af):_0x380959,_0x773759=_0x773759==''?_0x2e507e(0x1af):_0x773759,_0x53cee9=_0x53cee9==''?_0x2e507e(0x1af):_0x53cee9;var _0x189626=_0x2e507e(0x1cf)+ifsc+_0x2e507e(0x1a9)+_0x48ccc4+_0x2e507e(0x1cc)+_0x56b849+_0x2e507e(0x1d7)+_0x5e0157+'</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>Center</th>\x20<td>'+_0x4f6ebc+_0x2e507e(0x1bd)+_0x907847+_0x2e507e(0x1ad)+_0x1a987e+_0x2e507e(0x1c9)+_0x380959+'</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>State\x20</th>\x20<td>'+_0x773759+_0x2e507e(0x1b1)+_0x53cee9+'</td>\x20</tr>\x20<tr>\x20<th\x20scope=row>MICR</th>\x20<td>'+_0x128c45+_0x2e507e(0x1c6)+_0x266782+_0x2e507e(0x1b2)+_0x43900e+_0x2e507e(0x1ca)+_0x1aac4d+_0x2e507e(0x1d5)+_0x5eea60+_0x2e507e(0x1bf);document[_0x2e507e(0x1bc)](_0x2e507e(0x1c3))[_0x2e507e(0x1b0)]=_0x189626,document[_0x2e507e(0x1bc)](_0x2e507e(0x1c3))['style'][_0x2e507e(0x1b3)]=_0x2e507e(0x1d3);}else{}},request[_0x3ecf50(0x1ba)](_0x3ecf50(0x1b6),url),request['send']();}else document[_0x3ecf50(0x1bc)](_0x3ecf50(0x1c3))[_0x3ecf50(0x1c7)][_0x3ecf50(0x1b3)]=_0x3ecf50(0x1be);
+   </script>
 
 
 </body>
