@@ -44,6 +44,6 @@ html {
     font-size: 80%;
   }
 
- a:link{
-     color: white !important;
- }
+  a{
+    color: blue;
+  }
