@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Password Generator</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!---Favicon Code-->
+  <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="../assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!---End Favicon Code-->
+
+  <script data-ad-client="ca-pub-7541510388779651" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141145183-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-141145183-6');
+</script>
+
+</head>
+<body  >
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<a class="navbar-brand" href="index.html">Password Generator</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="text-white" href="../index.html">All Tools</a>				</li>
+    
+
+  </ul>
+
+</div>
+</nav>
+
+
+
+
+<section class="container-fluid bg py-3">
+   
+
+     
+
+<section class="row justify-content-md-center ">
+    
+<section class="col-12 col-sm-10 col-md-10 py-2 ">
+<form method="GET" action="show.html" class="form-container py-4">
+<div class="form-group">
+<h6>Generated Password</h6>
+<div class="float-right py-2">
+<button type="button"  id="copyBtn" class="btn btn-warning">Copy</button>
+<button type="button" id="downloadBtn" class="btn btn-warning">Download</button>
+
+<div id="snackbar">Text Copied ...</div>
+
+
+<button type="button" id="clearBtn" class="btn btn-warning">Clear</button>
+</div>
+<div class="">
+  <textarea class="form-control"  rows="4" id="output" ondblclick="this.select();"></textarea>
+
+</div>
+<br>
+
+<h6>Enter Size of Password</h6>
+<input type="text" id="size" value="8"  onkeyup="passgenerator();" placeholder="e.g. 20,24" class="form-control">
+<br>
+<div class="form-check">
+    <input class="form-check-input" onchange="passgenerator();" checked type="checkbox" id="AZ">
+    <label class="form-check-label" for="AZ">
+      Include (A to Z)
+    </label>
+
+  </div>
+ <div class="form-check">
+        <input class="form-check-input" onchange="passgenerator();" checked type="checkbox" id="azsmall">
+        <label class="form-check-label" for="azsmall">
+            Include (a to z)
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input"  onchange="passgenerator();" checked type="checkbox" id="n0to9">
+        <label class="form-check-label" for="n0to9">
+            Include (0 to 9)
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" onchange="passgenerator();" type="checkbox" id="special">
+        <label class="form-check-label" for="special">
+            Include (Special Characters Like $,#,!,@,^,%,*)
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" onchange="passgenerator();" type="checkbox" id="whitespace">
+        <label class="form-check-label" for="whitespace">
+          Include whitespaces
+        </label>
+      </div>
+     
+<br>
+      The password is  Generated in your device, Hence we do not have access to your password  and your password is completely secure, So don't worry.
+
+
+</div>
+
+
+
+
+</form>
+</section>
+
+
+
+</section>
+
+
+
+
+
+<br><br>
+  <div class="container">
+    <span class="text-muted">Copyright &copy; 2021 |</span>
+    <a  href="https://www.swayalgo.com">  A Tool by SwayAlgo.com</a>
+  </div>
+
+
+
+
+<script type="text/javascript" src="scipt.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous" type="3c92c4cec2a32a207d547cc5-text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" type="3c92c4cec2a32a207d547cc5-text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" type="3c92c4cec2a32a207d547cc5-text/javascript"></script>
+
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="3c92c4cec2a32a207d547cc5-|49" defer=""></script></body>
+</html>
