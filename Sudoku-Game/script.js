@@ -38,3 +38,6 @@ function writeThere(node,chr)
     
 }
 function NotDisabled(node){return !node.classList.contains("disabled");}
+function num(noder){if(NotDisabled(noder)){nodeM.innerHTML=noder.innerHTML; }}
+
+
