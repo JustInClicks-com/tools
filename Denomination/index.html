@@ -177,18 +177,21 @@ padding: 5px;
 
                         </table>
 
-					
+                        <div id="snackbar">Text Copied ...</div>
+
                             
 					</div>
 				
 
 					<button  type="submit" href="#output" class="btn btn-warning btn-block" onclick="calculate();">Calculate </button><br>
                     <h6>Total Amount</h6>
-                    <textarea name="wp-link" id="answer"  class="form-control" onkeyup="calculate();" onfocusout="putZero(this);" onfocus="clearFocused(this);" disabled cols="30" rows="1"></textarea>
-
+                    <textarea name="wp-link" id="answer"  class="form-control" onkeyup="calculate();" onfocusout="putZero(this);" onfocus="clearFocused(this);"  cols="30" rows="1"></textarea>
+                    <h6 class="float-right text-primary" onclick="cop2();"><u>Click To Copy</u></h6>
                     <h6>Total Amount in Words</h6>
-                    <textarea  id="inwords"  class="form-control" onkeyup="calculate();" onfocusout="putZero(this);" onfocus="clearFocused(this);" disabled cols="30" rows="4"></textarea>
-                  <!-- AddToAny BEGIN -->
+                    <textarea  id="inwords"  class="form-control" onkeyup="calculate();" onfocusout="putZero(this);" onfocus="clearFocused(this);"  cols="30" rows="4"></textarea>
+                     <h6 class="float-right text-primary" onclick="cop();"><u>Click To Copy</u></h6>
+
+                    <!-- AddToAny BEGIN -->
                   <br>
 <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
     <a class="a2a_dd" href="https://www.addtoany.com/share"></a>

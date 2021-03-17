@@ -94,12 +94,15 @@
 </form>
 </section>
 
+<div id="snackbar">Text Copied ...</div>
 
 <section class="col-12 col-sm-6 col-md-6 py-2">
     
     <form method="GET" action="show.html"  class="form-container py-4" >
     <div class="form-group">
-    <h6>Output (Double Click to Copy)</h6>
+    <h6>Output </h6>
+    <h6 class="float-right text-primary" onclick="cop2();"><u>Click To Copy</u></h6>
+
     <textarea ondblclick="CopyCode()" class="form-control" onfocus="this.select();" rows="20" id="output"></textarea>
     </div>
    
