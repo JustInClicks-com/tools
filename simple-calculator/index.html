@@ -1,7 +1,8 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="style.css">
 		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
     <!---Favicon Code-->
     <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
@@ -20,6 +21,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141145183-6"></script>
 <script>
@@ -37,13 +39,34 @@
 		<script data-ad-client="ca-pub-7541510388779651" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-		<style>
-			 body{
-			font-family: 'Varela Round';
-		}
-		</style>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="../main-style.css">
+
 	</head>
 	<body>
+		
+	<!---NAVBAR-->
+
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+		<a class="navbar-brand black bold" href="index.html">Password Generator</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="black" href="../index.html">All Tools</a>	
+			</li>
+		</ul>
+			<a class="black bold" href="https://www.swaya.com/"> SwayAlgo</a>
+		</div>
+		
+		</nav>
+
+	<!--NAVBAR-->
+
 		<div id="container">
 			<div id="calculator">
 				<div id="result">
@@ -79,11 +102,11 @@
 			</div>
 		</div>
 		<script src="script.js"></script>
-		<footer class="footer bg-dark">
+		<footer class="footer bg-custom">
 			<div class="container">
-				<span style="color: white !important;" class="text-muted">Copyright &copy; 2021 |</span>
-				<a class="text-white" href="https://www.swayalgo.com">  A Tool by SwayAlgo.com</a>
+			  <span class="black" >Copyright &copy; 2021 |</span>
+			  <a class="black" href="https://www.swayalgo.com">  A Tool by SwayAlgo.com</a>
 			</div>
-		</footer>
+		  </footer>
 	</body>
 </html>
