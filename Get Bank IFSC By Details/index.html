@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<style>
+  #citySelect, #districtSelect, #stateSelect,#centerSelect,#branchSelect{
+width: 100%;
+    }
+</style>
+
+	<title>Get IFSC By Details | JustInClicks.com</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="../main-style.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <!---Favicon Code-->
+	  <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
+	  <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
+	  <link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
+	  <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
+	  <link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon/apple-icon-114x114.png">
+	  <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/apple-icon-120x120.png">
+	  <link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon/apple-icon-144x144.png">
+	  <link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon/apple-icon-152x152.png">
+	  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-icon-180x180.png">
+	  <link rel="icon" type="image/png" sizes="192x192"  href="../assets/favicon/android-icon-192x192.png">
+	  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+	  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+	  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+	  <link rel="manifest" href="../assets/favicon/manifest.json">
+	  <meta name="msapplication-TileColor" content="#ffffff">
+	  <meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
+	  <meta name="theme-color" content="#ffffff">
+  
+	  <!---End Favicon Code-->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141145183-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-141145183-6');
+</script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+	<!---NAVBAR-->
+
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+		<a class="navbar-brand black bold" href="index.html">Get IFSC By Details</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="black" href="../index.html">All Tools</a>	
+			</li>
+		</ul>
+			<a class="black bold" href="https://www.swayalgo.com/"> SwayAlgo</a>
+		</div>
+		
+		</nav>
+
+	<!--NAVBAR-->
+
+
+
+	<!----Main Content-->
+
+	<section class="container-fluid bg py-3">
+		<section class="row justify-content-center">
+			<section class="col-12 col-sm-8 col-md-4">
+
+				<form method="GET" action="#" class="form-container py-4" id="ifsc-form">
+<h6>Select State</h6>
+					<div class="form-group">
+                        <select id="stateSelect" onchange="getDistricts(this);" class="form-select" aria-label="Default select example">
+                            <option value="">Select State</option>
+                          </select>
+					</div>
+                    <h6>Select District</h6>
+					<div class="form-group">
+                        <select id="districtSelect" onchange="getCitys(this);" class="form-select" aria-label="Default select example">
+                            <option value="">Select District</option> 
+                        </select>
+					</div>
+                    <h6>Select City</h6>
+					<div class="form-group">
+                        <select id="citySelect" onchange="getCenter(this);" class="form-select" aria-label="Default select example">
+                            <option value="">Select City</option> 
+                        </select>
+					</div>
+                    <h6>Select Center</h6>
+					<div class="form-group">
+                        <select id="centerSelect" onchange="getBranch(this);" class="form-select" aria-label="Default select example">
+                            <option value="">Select Center</option> 
+                        </select>
+					</div>
+                    <h6>Select Branch</h6>
+					<div class="form-group">
+                        <select id="branchSelect" onchange="getAllData(this);" class="form-select" aria-label="Default select example">
+                            <option value="">Select Branch</option> 
+                        </select>
+					</div>
+					
+					
+					
+
+                    <br>
+                    <div class="form-group" id="response"></div>
+
+
+				</form>
+			</section>
+		</section>
+	</section>
+
+
+
+
+	<footer class="footer bg-custom">
+		<div class="container">
+			<span class="black" >Copyright &copy; 2021 |</span>
+			<a class="black" href="https://www.swayalgo.com">  A Tool by SwayAlgo.com</a>
+		</div>
+	</footer>
+	
+
+
+	<!----Main Content-->
+
+
+
+
+   
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+        var state,district,city,center,branch;
+
+            url="https://kaustubhk24.github.io/Indian-Banks-Data/V1/API/";
+        
+            function httpGet(theUrl)
+        {
+            console.log(theUrl);
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+            xmlHttp.send( null );
+            return xmlHttp.responseText;
+        }
+        
+        function titleCase(str) {
+  str = str.toLowerCase().split(' ');
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+  }
+  return str.join(' ');
+}
+        
+        function addInCombo(id,datalist)
+        {
+            var inner;
+            var x = document.getElementById(id);
+            var list1=JSON.parse(datalist);
+            inner='<option>Select</option>'
+        
+            for (var i=0;i<list1.length;i++)
+            {
+                var temp=titleCase(list1[i]).replace('.json','');
+                inner=inner+'<option   value="'+temp+'">'+temp+'</option>';
+
+
+            }
+            x.innerHTML=inner;
+        
+        
+        }
+        
+        var states =httpGet(url);
+        addInCombo("stateSelect",states);
+        
+        
+        function getDistricts(a)
+        {
+            state=a.value.toUpperCase();
+            districts=httpGet(url+state);
+            addInCombo("districtSelect",districts);
+        }
+        function getCitys(a)
+        {
+            district=a.value.toUpperCase();
+            cities=httpGet(url+state+"/"+district);
+            addInCombo("citySelect",cities);
+        }
+        function getCenter(a)
+
+        {
+            city=a.value.toUpperCase();
+            centers=httpGet(url+state+"/"+district+"/"+city);
+            addInCombo("centerSelect",centers);
+        }
+        function getBranch(a)
+        {
+            center=a.value.toUpperCase();
+            branches=httpGet(url+state+"/"+district+"/"+city+"/"+center+"/");
+            addInCombo("branchSelect",branches);
+            console.log(branches);
+        }
+        function getAllData(a)
+        {
+            state=document.getElementById("stateSelect").value.toUpperCase();
+            district=document.getElementById("districtSelect").value.toUpperCase();
+            city=document.getElementById("citySelect").value.toUpperCase();
+            center=document.getElementById("centerSelect").value.toUpperCase();
+            branch=document.getElementById("branchSelect").value.toUpperCase();
+
+
+            branch=a.value.toUpperCase();
+            branch=branch+".json";
+            data=httpGet(url+state+"/"+district+"/"+city+"/"+center+"/"+branch);
+            j=JSON.parse(data);
+
+            var myArr = j;
+					
+
+
+
+
+						//var ifsc to be use
+                        var ifsc=myArr.IFSC;
+						var bankName = myArr.BANK;
+						var branch = myArr.BRANCH;
+						var address = myArr.ADDRESS;
+						var center = myArr.CENTRE;
+						var district = myArr.DISTRICT;
+						var state = myArr.STATE;
+						var contact = myArr.CONTACT;
+						var upi = myArr.UPI;
+						var rtgs = myArr.RTGS;
+						var city = myArr.CITY;
+						var neft = myArr.NEFT;
+						var imps = myArr.IMPS;
+						var micr = myArr.MICR;
+						var bankcode = myArr.BANKCODE;
+
+
+						if (micr == "") {
+							micr = "Not found";
+						}
+
+						upi = (upi == true) ? "Yes" : "No";
+						rtgs = (rtgs == true) ? "Yes" : "No";
+						neft = (neft == true) ? "Yes" : "No";
+						imps = (imps == true) ? "Yes" : "No";
+						micr = (imps == "") ? "Not Found" : micr;
+						bankcode = (bankcode == "") ? "Not Found" : bankcode;
+						bankName = (bankName == "") ? "Not Found" : bankName;
+						branch = (branch == "") ? "Not Found" : branch;
+						address = (address == "") ? "Not Found" : address;
+						center = (center == "") ? "Not Found" : center;
+						district = (district == "") ? "Not Found" : district;
+						state = (state == "") ? "Not Found" : state;
+						contact = (contact == "") ? "Not Found" : contact;
+						var generated = '<table class=table table-striped> <br> <h5>Basic Details</h5> <thead> <tr> <th scope=col>Point </th> <th scope=col>Details</th> </tr> </thead> <tbody> <tr> <th scope=row>IFSC</th> <td>' + ifsc + '</td> </tr> <tr> <th scope=row>Bank Name</th> <td>' + bankName + '</td> </tr> <tr> <th scope=row>Bank Code</th> <td>' + bankcode + '</td> </tr> <tr> <th scope=row>Branch</th> <td>' + branch + '</td> </tr> <tr> <th scope=row>Center</th> <td>' + center + '</td> </tr> <tr> <th scope=row>City</th> <td>' + city + '</td> </tr> <tr> <th scope=row>Address</th> <td>' + address + '</td> </tr> <tr> <th scope=row>District</th> <td>' + district + '</td> </tr> <tr> <th scope=row>State </th> <td>' + state + '</td> </tr> <tr> <th scope=row>Contact No</th> <td>' + contact + '</td> </tr> <tr> <th scope=row>MICR</th> <td>' + micr + '</td> </tr> <br> <tr> <th scope=row>UPI</th> <td>' + upi + '</td> </tr> <tr> <th scope=row>RTGS</th> <td>' + rtgs + '</td> </tr> <tr> <th scope=row>NEFT</th> <td>' + neft + '</td> </tr> <tr> <th scope=row>IMPS</th> <td>' + imps + '</td> </tr> </tbody> </table><br> ';
+						document.getElementById('response').innerHTML = generated;
+						document.getElementById('response').style.display = "block";
+            
+        }
+        
+            </script>
+
+	
+
+</body>
+
+</html>
