@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DigiPIN Generator - India Post | Digital Addressing System</title>
+  <meta name="description" content="Generate your DigiPIN using India Post's DigiPIN Generator. Find your digital address based on your location on the map or search places. Secure, easy, and accurate DigiPIN for India." />
+  <meta name="keywords" content="DigiPIN, India Post DigiPIN, digital address, address grid, DigiPIN generator, open source address system, digital address India, DigiPIN map" />
+  <meta name="author" content="India Post" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: #f9f9f9;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      background-color: #0072c6;
+      color: white;
+      padding: 20px;
+      width: 100%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      font-size: 1.6rem;
+      font-weight: bold;
+      user-select: none;
+    }
+    #map {
+      height: 60vh;
+      width: 90%;
+      max-width: 700px;
+      border-radius: 8px;
+      margin-top: 20px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+    #controls {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      max-width: 700px;
+      width: 90%;
+    }
+    #search-input {
+      flex: 1 1 220px;
+      padding: 10px 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline-offset: 2px;
+      transition: outline-color 0.3s ease;
+    }
+    #search-input:focus {
+      outline-color: #0072c6;
+      border-color: #0072c6;
+    }
+    button {
+      background-color: #0072c6;
+      color: white;
+      border: none;
+      padding: 11px 20px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    button:hover, button:focus {
+      background-color: #005a9c;
+      outline: none;
+    }
+    #digipin-output {
+      margin-top: 25px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #004080;
+      word-break: break-word;
+      max-width: 700px;
+      width: 90%;
+      background: #e6f0ff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,64,128,0.2);
+    }
+    /* Responsive for smaller screens */
+    @media (max-width: 480px) {
+      #controls {
+        flex-direction: column;
+        gap: 10px;
+      }
+      #search-input, button {
+        width: 100%;
+        font-size: 1.1rem;
+      }
+      #map {
+        height: 50vh;
+        width: 100%;
+      }
+      #digipin-output {
+        font-size: 1.2rem;
+        padding: 12px 16px;
+      }
+    }
+    /* FAQ styles */
+    #faq-section {
+      max-width: 700px;
+      width: 90%;
+      margin: 40px auto 40px;
+      text-align: left;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    #faq-section h3 {
+      color: #0072c6;
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    .faq-item {
+      margin-bottom: 18px;
+    }
+    .faq-question {
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      padding-right: 20px;
+      color: #004080;
+    }
+    .faq-question::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-weight: 900;
+      transition: transform 0.3s ease;
+    }
+    .faq-question.active::after {
+      content: "-";
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      margin-top: 6px;
+      padding-left: 10px;
+      color: #333;
+    }
+    .faq-answer.open {
+      max-height: 500px; /* large enough to show full answer */
+    }
+  </style>
+</head>
+<body>
+
+  <header>DigiPIN Generator - India Post Digital Addressing System</header>
+
+  <div id="map"></div>
+
+  <div id="controls">
+    <input id="search-input" type="text" placeholder="Search for place or address" aria-label="Search location" />
+    <button id="search-btn" aria-label="Search location">Search</button>
+    <button id="locate-btn" aria-label="Fetch my current location">Fetch My Location</button>
+    <button id="generate-btn" aria-label="Generate DigiPIN">Generate DigiPIN</button>
+  </div>
+
+  <div id="digipin-output" aria-live="polite" aria-atomic="true" role="region"></div>
+
+  <section id="faq-section" aria-label="Frequently Asked Questions about DigiPIN">
+    <h3>Frequently Asked Questions (FAQ)</h3>
+
+    <div class="faq-item">
+      <div class="faq-question" tabindex="0">What is DigiPIN?</div>
+      <div class="faq-answer">
+        DigiPIN is a standardized digital addressing system developed by India Post, providing a unique alphanumeric code for every location in India, making addresses easier to locate digitally.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" tabindex="0">How is DigiPIN different from the traditional postal PIN code?</div>
+      <div class="faq-answer">
+        Unlike postal PIN codes which cover large areas, DigiPIN encodes precise latitude and longitude grids to pinpoint exact locations digitally.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" tabindex="0">Can I use DigiPIN for navigation or deliveries?</div>
+      <div class="faq-answer">
+        Yes, DigiPIN aims to improve navigation, emergency services, and delivery accuracy by providing a precise digital address.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" tabindex="0">Is my location data stored when I generate a DigiPIN?</div>
+      <div class="faq-answer">
+        No, this tool does not store or share any personal location data. All calculations are done locally on your device.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" tabindex="0">Does DigiPIN work offline?</div>
+      <div class="faq-answer">
+        DigiPIN encoding and decoding work offline, but map and search features require an internet connection.
+      </div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // DigiPIN Grid and bounds constants
+    const DIGIPIN_GRID = [
+      ['F', 'C', '9', '8'],
+      ['J', '3', '2', '7'],
+      ['K', '4', '5', '6'],
+      ['L', 'M', 'P', 'T']
+    ];
+    const BOUNDS = {
+      minLat: 2.5,
+      maxLat: 38.5,
+      minLon: 63.5,
+      maxLon: 99.5
+    };
+
+    // Initialize the map
+    const map = L.map('map').setView([20.5937, 78.9629], 5);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    let marker = null;
+    let selectedLatLng = null;
+
+    // DigiPIN generation function
+    function getDigiPin(lat, lon) {
+      if (lat < BOUNDS.minLat || lat > BOUNDS.maxLat || lon < BOUNDS.minLon || lon > BOUNDS.maxLon) {
+        return 'Location out of India bounds';
+      }
+      let minLat = BOUNDS.minLat, maxLat = BOUNDS.maxLat;
+      let minLon = BOUNDS.minLon, maxLon = BOUNDS.maxLon;
+      let digiPin = '';
+
+      for (let level = 1; level <= 10; level++) {
+        const latDiv = (maxLat - minLat) / 4;
+        const lonDiv = (maxLon - minLon) / 4;
+
+        let row = 3 - Math.floor((lat - minLat) / latDiv);
+        let col = Math.floor((lon - minLon) / lonDiv);
+
+        row = Math.max(0, Math.min(row, 3));
+        col = Math.max(0, Math.min(col, 3));
+
+        digiPin += DIGIPIN_GRID[row][col];
+        if (level === 3 || level === 6) digiPin += '-';
+
+        maxLat = minLat + latDiv * (4 - row);
+        minLat = minLat + latDiv * (3 - row);
+        minLon = minLon + lonDiv * col;
+        maxLon = minLon + lonDiv;
+      }
+      return digiPin;
+    }
+
+    // Update marker and selected location on map click
+    map.on('click', e => {
+      selectedLatLng = e.latlng;
+      placeMarker(selectedLatLng);
+      clearOutput();
+    });
+
+    // Place marker helper
+    function placeMarker(latlng) {
+      if (marker) map.removeLayer(marker);
+      marker = L.marker(latlng).addTo(map);
+    }
+
+    // Clear DigiPIN output
+    function clearOutput() {
+      document.getElementById('digipin-output').innerText = '';
+    }
+
+    // Generate DigiPIN button click
+    document.getElementById('generate-btn').addEventListener('click', () => {
+      if (!selectedLatLng) {
+        alert('Please select a location on the map or use the search/fetch location features.');
+        return;
+      }
+      const { lat, lng } = selectedLatLng;
+      const digiPin = getDigiPin(lat, lng);
+      const outputEl = document.getElementById('digipin-output');
+      outputEl.innerText = `Latitude: ${lat.toFixed(6)}, Longitude: ${lng.toFixed(6)}\nDigiPIN: ${digiPin}`;
+    });
+
+    // Search functionality using Nominatim (OpenStreetMap)
+    async function searchPlace(query) {
+      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=in&limit=5&addressdetails=1`;
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+      } catch (err) {
+        alert('Error fetching search results. Please try again.');
+        return [];
+      }
+    }
+
+    document.getElementById('search-btn').addEventListener('click', async () => {
+      const query = document.getElementById('search-input').value.trim();
+      if (!query) {
+        alert('Please enter a place or address to search.');
+        return;
+      }
+      const results = await searchPlace(query);
+      if (results.length === 0) {
+        alert('No results found.');
+        return;
+      }
+      const firstResult = results[0];
+      selectedLatLng = L.latLng(firstResult.lat, firstResult.lon);
+      map.setView(selectedLatLng, 15);
+      placeMarker(selectedLatLng);
+      clearOutput();
+    });
+
+    // Fetch user location with Geolocation API
+    document.getElementById('locate-btn').addEventListener('click', () => {
+      if (!navigator.geolocation) {
+        alert('Geolocation is not supported by your browser.');
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          selectedLatLng = L.latLng(position.coords.latitude, position.coords.longitude);
+          map.setView(selectedLatLng, 15);
+          placeMarker(selectedLatLng);
+          clearOutput();
+        },
+        error => {
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              alert('Permission denied. Please allow location access to use this feature.');
+              break;
+            case error.POSITION_UNAVAILABLE:
+              alert('Location information is unavailable.');
+              break;
+            case error.TIMEOUT:
+              alert('The request to get your location timed out.');
+              break;
+            default:
+              alert('An unknown error occurred while fetching your location.');
+              break;
+          }
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      );
+    });
+
+    // FAQ toggle functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        question.classList.toggle('active');
+        const answer = question.nextElementSibling;
+        if (answer.classList.contains('open')) {
+          answer.classList.remove('open');
+        } else {
+          answer.classList.add('open');
+        }
+      });
+      question.addEventListener('keypress', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          question.click();
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
