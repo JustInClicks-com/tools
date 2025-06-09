@@ -1,83 +1,73 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
 <url>
-<loc>https://tools.JustInClicks.com/</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>1.00</priority>
+  <loc>https://tools.justinclicks.com/</loc>
+  <lastmod>2022-05-21T08:42:26+00:00</lastmod>
+  <priority>1.00</priority>
 </url>
 <url>
-<loc>https://tools.JustInClicks.com/Bank-Details-By-IFSC-code/</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://tools.justinclicks.com/index.html</loc>
+  <lastmod>2022-05-21T08:42:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://tools.JustInClicks.com/simple-calculator/</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://tools.justinclicks.com/Android-View-Binding-Generator/</loc>
+  <lastmod>2022-05-21T08:42:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://tools.JustInClicks.com/Android-View-Binding-Generator/</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://tools.justinclicks.com/Bank-Details-By-IFSC-code/</loc>
+  <lastmod>2022-05-21T08:42:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://tools.JustInClicks.com/Text-Transformer/</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://tools.justinclicks.com/crontab-jobs-schedule-maker/</loc>
+  <lastmod>2022-05-21T08:42:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://tools.JustInClicks.com/crontab-jobs-schedule-maker/</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://tools.justinclicks.com/Denomination/</loc>
+  <lastmod>2022-05-21T08:42:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://tools.JustInClicks.com/WhatsApp-Link-Maker/</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://tools.justinclicks.com/Get-Bank-IFSC-By-Details/</loc>
+  <lastmod>2022-05-21T08:42:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://tools.JustInClicks.com/Denomination/</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.80</priority>
+  <loc>https://tools.justinclicks.com/Password-Generator/</loc>
+  <lastmod>2022-05-21T08:42:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://tools.JustInClicks.com/Bank-Details-By-IFSC-code/index.html</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.64</priority>
+  <loc>https://tools.justinclicks.com/simple-calculator/</loc>
+  <lastmod>2022-05-21T08:42:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://tools.JustInClicks.com/index.html</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.64</priority>
+  <loc>https://tools.justinclicks.com/Text-Transformer/</loc>
+  <lastmod>2022-05-21T08:42:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://tools.JustInClicks.com/Android-View-Binding-Generator/index.html</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.64</priority>
+  <loc>https://tools.justinclicks.com/WhatsApp-Link-Maker/</loc>
+  <lastmod>2022-05-21T08:42:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-<loc>https://tools.JustInClicks.com/Text-Transformer/index.html</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.64</priority>
+  <loc>https://tools.justinclicks.com/digipin-generator-india-post-digital-address/</loc>
+  <lastmod>2025-06-09T08:42:26+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
-<url>
-<loc>https://tools.JustInClicks.com/crontab-jobs-schedule-maker/index.html</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://tools.JustInClicks.com/WhatsApp-Link-Maker/index.html</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://tools.JustInClicks.com/Denomination/index.html</loc>
-<lastmod>2021-03-07T14:27:42+00:00</lastmod>
-<priority>0.64</priority>
-</url>
-<url>
-<loc>https://tools.JustInClicks.com//Password-Generator/index.html</loc>
-<lastmod>2021-03-12T14:27:42+00:00</lastmod>
-<priority>0.64</priority>
-</url>
+
+
 </urlset>
